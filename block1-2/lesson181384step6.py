@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import time
 
 browser = webdriver.Chrome()
 # говорим WebDriver ждать все элементы в течение 5 секунд
@@ -12,3 +13,9 @@ button.click()
 message = browser.find_element(By.ID, "verify_message")
 
 assert "successful" in message.text
+
+
+# ожидание чтобы визуально оценить результаты прохождения скрипта
+time.sleep(10)
+# закрываем браузер после всех манипуляций
+browser.quit()
